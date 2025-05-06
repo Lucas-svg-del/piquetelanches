@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hora Atual</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f4f4f4;
+    }
+
+    #dataHora {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Relógio JavaScript 🕒</h1>
+
+  <p id="dataHora">Clique no botão abaixo para ver a hora atual.</p>
+  <button onclick="mostrarHora()">Mostrar hora</button>
+
+  <script>
+    function mostrarHora() {
+      const agora = new Date();
+      const horas = agora.getHours().toString().padStart(2, "0");
+      const minutos = agora.getMinutes().toString().padStart(2, "0");
+      const segundos = agora.getSeconds().toString().padStart(2, "0");
+
+      const horaAtual = `${horas}:${minutos}:${segundos}`;
+      document.getElementById("dataHora").innerText = "Hora atual: " + horaAtual;
+    }
+  </script>
+</body>
+</html>

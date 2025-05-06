@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Aurora</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <button onclick="mostrarCaixa()">Mostrar Mensagem</button>
+
+<div id="caixaMensagem" class="oculto">
+  <p>Bem-vindo ao nosso site! 🎉</p>
+  <style>
+    .oculto {
+      opacity: 0;
+      transition: opacity 1s ease;
+      height: 0;
+      overflow: hidden;
+    }
+  
+    .visivel {
+      opacity: 1;
+      height: auto;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0ffe0;
+      border: 1px solid #b2ffb2;
+      border-radius: 8px;
+    }
+  </style>
+  
+
+</div>
+
+</head>
+<body>
+  <header>
+    <h1>Café Aurora</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#vantagens">Vantagens</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+  
+  <section class="banner">
+    <h2>Descubra o sabor do verdadeiro café artesanal</h2>
+    <a href="#produtos" class="btn">Ver nossos cafés</a>
+  </section>
+
+  <section class="vantagens" id="vantagens">
+    <h2>Por que escolher o Café Aurora?</h2>
+    <div class="colunas">
+      <div class="card">
+        <i class="fas fa-seedling fa-2x"></i>
+        <h3>Orgânico</h3>
+        <p>Grãos cultivados com responsabilidade ambiental e sem agrotóxicos.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-mug-hot fa-2x"></i>
+        <h3>Sabor único</h3>
+        <p>Torra especial que realça o aroma e sabor de cada xícara.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-truck fa-2x"></i>
+        <h3>Entrega rápida</h3>
+        <p>Levamos o café fresquinho até você com agilidade e carinho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="produtos" id="produtos">
+    <h2>Nossos cafés</h2>
+    <ul>
+      <li>Café tradicional 250g</li>
+      <li>Café especial 500g</li>
+      <li>Café gourmet moído 1kg</li>
+    </ul>
+  </section>
+
+  <section class="contato" id="contato">
+    <h2>Fale com a gente</h2>
+    <form>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu email" required>
+      <textarea placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  <p id="dataHora">Clique no botão para ver a hora atual.</p>
+  <button onclick="mostrarHora()">Mostrar hora</button>
+  
+  <footer>
+    <p>&copy; 2025 Café Aurora. Todos os direitos reservados.</p>
+    <div class="redes">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <button onclick="digaOla()">Clique aqui</button>
+
+    </div>
+    <h2>Contato</h2>
+<form onsubmit="return validarFormulario()">
+  <label for="nome">Nome:</label><br>
+  <input type="text" id="nome" name="nome"><br><br>
+
+  <label for="email">E-mail:</label><br>
+  <input type="email" id="email" name="email"><br><br>
+
+  <input type="submit" value="Enviar">
+  <p id="mensagemErro" style="color: red;"></p>
+</form>
+  </footer>
+  <script>
+    function digaOla() {
+      alert("Olá! Seja bem-vindo ao Café Aurora ☕");
+    }
+  </script>
+<p id="mensagem">Clique no botão para mudar este texto.</p>
+<button onclick="mudarTexto()">Mudar texto</button>
+
+<script>
+  function mudarTexto() {
+    document.getElementById("mensagem").innerText = "Texto alterado com JavaScript!";
+  }
+</script>
+<p id="textoOculto" style="display:none;">Esse texto estava escondido, mas apareceu com JavaScript!</p>
+<button onclick="mostrarTexto()">Mostrar texto</button>
+<button onclick="ocultarTexto()">Ocultar texto</button>
+<script>
+  function mostrarTexto() {
+    document.getElementById("textoOculto").style.display = "block";
+  }
+
+  function ocultarTexto() {
+    document.getElementById("textoOculto").style.display = "none";
+  }
+  
+ 
+</script>
+<script>
+  function mostrarHora() {
+    const agora = new Date();
+    const horaFormatada = agora.getHours() + ":" +
+                          agora.getMinutes().toString().padStart(2, "0") + ":" +
+                          agora.getSeconds().toString().padStart(2, "0");
+    document.getElementById("dataHora").innerText = "Hora atual: " + horaFormatada;
+  }
+</script>
+<script>
+  function validarFormulario() {
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensagemErro = document.getElementById("mensagemErro");
+
+    if (nome === "" || email === "") {
+      mensagemErro.textContent = "Por favor, preencha todos os campos.";
+      return false; // impede o envio
+    }
+
+    // Tudo certo!
+    mensagemErro.textContent = "";
+    alert("Formulário enviado com sucesso!");
+    return true; // permite o envio
+  }
+</script>
+<script>
+  function mostrarCaixa() {
+    const caixa = document.getElementById("caixaMensagem");
+    caixa.classList.add("visivel");
+    caixa.classList.remove("oculto");
+  }
+</script>
+
+</body>
+</html>
+<p id="meuTexto">Clique no botão para mudar a cor deste texto.</p>
+<button onclick="mudarCor()">Mudar cor</button>
+<script>
+  function mudarCor() {
+    document.getElementById("meuTexto").style.color = "darkgreen";
+    document.getElementById("meuTexto").style.fontSize = "22px";
+  }
+ 
+
+
+
+
